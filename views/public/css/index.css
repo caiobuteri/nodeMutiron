@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+  }
+  
+html,
+body {
+    height: 100vh;
+    font-family: "Source Sans Pro";
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: #FFFAFA;
+  }
+
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.choose-event {
+    width: 100%;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.botaomut {
+    width: 130px;
+}
+
+.botaodoac {
+    width: 100px;   
+}
+
+
+main .choose-event button {
+    width: 120px;
+    height: 60px;
+    border: solid 3px #e2003a;
+    border-radius: 0 7px 0 7px;
+    background-color: #FFFAFA;
+    font-weight: bold;
+    color: #e2003a;
+    transition: all 250ms linear 0s;
+}
+
+main .choose-event button:hover {
+    background: rgba(202, 118, 93, 0.15)
+  }
+
+main .eventos {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main .borda {
+    display: flex;
+    padding: 15px;
+    border: solid 2px #e2003a;
+    border-radius: 7px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main .evento{
+    display: flex;
+    padding: 15px;
+    width: 600px;
+}
+
+main .imgEvento {
+    float: left;
+    height: 200px;
+    width: 200px;
+}
+
+main .informacoes {
+    display: flex;
+    float: right;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main .title {
+    padding-left: 20px;
+    height: 25%;
+    font-size: 23px;
+    font-weight: bolder;
+}
+
+main .descricao {
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+main .btnVerMais {
+    width: 370px;
+}
+
+main .btnV {
+    float: right;
+    width: 100px;
+    height: 60px;
+    text-decoration: none;
+    color: #e2003a;
+    font-weight: bolder;
+}
+
+main .espacamento {
+    padding-top: 15px;
+}

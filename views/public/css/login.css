@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+  }
+  
+  html,
+  body {
+    height: 100vh;
+    font-family: "Source Sans Pro";
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: #FFFAFA;
+  }
+
+
+  header img {
+    width: 150px;
+    margin-left: 20px;
+    padding: 15px 0;
+  }
+
+main .container-form {
+    width: 100%;  
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+main .container-campos {
+    border: 1px solid #e2003a;
+    border-radius: 10px;
+
+    padding: 75px 75px 75px 75px;
+}
+
+main span {
+    font-family: Poppins-Bold;
+    font-size: 24px;
+    color: #e2003a;
+    text-align: center;
+
+    width: 100%;
+    display: block;
+    padding-bottom: 54px;
+}
+
+main label {
+    font-family: Poppins-Bold;
+    font-size: 24px;
+    color: #e2003a;
+    text-align: center;
+}
+
+main input[type="text"] {
+    border: 1px solid #e2003a;
+    border-radius: 10px;
+
+    height: 35px;
+    width: 300px;
+}
+
+main input[type="password"] {
+    border: 1px solid #e2003a;
+    border-radius: 10px;
+
+    height: 35px;
+    width: 300px;
+}
+
+.container-password {
+    padding-top: 15px;
+}
+
+.container-btn {
+    padding-top: 20px;
+}
+
+main button {
+    background-color:  #e2003a;
+    border: 1px solid #e2003a;
+    border-radius: 10px;
+
+    height: 35px;
+    width: 100px;
+
+    font-family: Montserrat-Bold;
+    font-size: 24px;
+    color: #FFFAFA;
+    text-align: center;
+}
+
+.container-link {
+  margin-top: 10px;
+}
+
+main a{
+    text-decoration: none;
+    font-family: Poppins-Bold;
+    font-size: 15px;
+    color: #e2003a;
+}

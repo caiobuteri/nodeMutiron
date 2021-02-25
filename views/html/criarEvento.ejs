@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="../css/criarEvento.css">
+    <title>MutirON - Criar evento</title>
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+          <div class="img">
+            <img src="./images/mutiron3.png" alt="MutirON"/>
+          </div>
+          <div id="divBusca">
+            <input type="text" id="txtBusca" placeholder="Buscar...">
+            <a href=""><button id="btnBusca">Buscar</button></a>
+          </div>
+          <div class="nav">
+            <nav>
+              <ul>
+                <li>
+                  <a href="criarEvento.html">Notificações</a>
+                </li>
+                <li>
+                  <a href="#">Perfil</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="separacao">
+            
+            <div class="adcFoto">
+            
+            </div>
+
+            <div class="adcInformacoes">
+                
+                <form action="#" method="POST">
+                    <span>Informações gerais:</span><br>
+                    <div class="campo">
+                        <label for="titulo">Título:</label><br>
+                        <input type="text" name="titulo"><br>
+                    </div>
+                    <div class="campo">
+                        <label for="descricao">Descrição:</label><br>
+                        <textarea name="message" rows="15" cols="40"></textarea>
+                    </div>
+                    <div class="campo">
+                        <label for="data">Data:</label><br>
+                        <input type="date" name="data"><br>
+                    </div>
+                    <div class="campo">
+                        <label for="hora">Localização:</label><br>
+                        <input name="local" rows="5" cols="40"><br>
+                    </div>
+
+                    <div class="btnCriar">
+                        <a href=""><button type="submit">Criar</button></a>
+                    </div>
+                </form>
+
+            </div>
+        
+        </div>
+    </main>
+
+</body>
+</html>
