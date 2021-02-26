@@ -1,4 +1,4 @@
-const services = require('../services/service')
+const services = require('../services/servicesUsuarios')
 
 module.exports = {
 
