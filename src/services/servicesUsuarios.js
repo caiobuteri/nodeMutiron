@@ -6,7 +6,6 @@ module.exports = {
 
           db.query('SELECT * FROM pessoas', (error, results) => {
               if (error) {reject(error); return}
-
               resolve(results)
           })
       })
@@ -22,7 +21,7 @@ module.exports = {
                       resolve(results.insertId)
                   })
   
-  })
+    });
   },
 
   atualizaUsuario: (id, nome, senha) => {

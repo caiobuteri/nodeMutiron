@@ -3,8 +3,11 @@ const faker = require('faker')
 const bodyParser = require('body-parser')
 const expressLayouts = require('express-ejs-layouts')
 const path = require('path')
-const rotas = require('./routes/rotas')
 const cors = require('cors');
+
+const users = require('./routes/users');
+const events = require('./routes/events');
+const participacoes = require('./routes/participacao')
 
 const app = express()
 // app.use(cors())
@@ -23,7 +26,9 @@ app.use(bodyParser.urlencoded({ extended: true })) // Com essa configuração, v
 app.use(express.static(path.join(__dirname, 'views/public')))
 
 
-app.use('/', rotas)
+app.use('/users', users)
+app.use('/events', events)
+app.use('/participacao', participacoes)
 
 app.listen(3333, () => {
   console.log("Back-end rodando!")
