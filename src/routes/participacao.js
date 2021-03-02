@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const ctl = require('../src/controllers/controllerParticipacao');
+const ctl = require('../controllers/controllerParticipacao');
 
 router.get('/criaParticipacao', ctl.insereParticipacao);
 router.get('/deletaParticipacao/:id', ctl.deletaParticipacao);

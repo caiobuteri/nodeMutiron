@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const ctl = require('../src/controllers/controllerUsuarios')
+const ctl = require('../controllers/controllerUsuarios')
 
 router.get('/lerUsuarios', (req, res) => {
   
@@ -10,13 +10,16 @@ router.get('/lerUsuarios', (req, res) => {
   })  
 })
 
-router.post('/insereUsuario', (req, res) => {
+router.get('/insereUsuario', (req, res) => {
+  res.render('pages/cadastro')
+});
 
+router.post('/insereUsuario', (req, res) => {
   let json = ctl.insereUsuario().then((resultado) => {
     res.json(resultado)
-  })
-})
-
+  });
+});
+ 
 router.get('/atualizaUsuario', (req, res) => {
 
   let json = ctl.atualizaUsuario().then((resultado) => {

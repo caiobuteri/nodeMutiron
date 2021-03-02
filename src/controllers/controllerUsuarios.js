@@ -23,22 +23,23 @@ module.exports = {
   insereUsuario: async(req, res) => {
     let json = {error: '', result: {}}
 
-        let nome = "kkk"
-        let senha = "333"
+    let nome = "kkk"
+    let senha = "333"
 
-        if (!nome && senha){
-            json.error = 'Campos não enviados'
-        }
+    if (!nome && senha){
+        json.error = 'Campos não enviados'
+        return json;
+    }
 
-        let pessoaId = await services.insereUsuario(nome, senha)
+    let pessoaId = await services.insereUsuario(nome, senha)
 
-        json.result = {
-            id: pessoaId,
-            nome,
-            senha
-        }
+    json.result = {
+        id: pessoaId,
+        nome,
+        senha
+    }
 
-        return json
+    return json
   },
   
   atualizaUsuario: async(req, res) => {
