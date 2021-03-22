@@ -13,7 +13,7 @@
     <header>
         <div class="container">
           <div class="img">
-            <img src="/images/mutiron3.png" alt="MutirON"/>
+            <a href="/index"><img src="/images/mutiron3.png" alt="MutirON"/></a>
           </div>
           <div id="divBusca">
             <input type="text" id="txtBusca" placeholder="Buscar...">
@@ -23,10 +23,7 @@
             <nav>
               <ul>
                 <li>
-                  <a href="https://caiobuteri.github.io/mutiron/criarEvento">Novo evento</a>
-                </li>
-                <li>
-                  <a href="#">Notificações</a>
+                  <a href="events/criarEvento">Novo evento</a>
                 </li>
                 <li>
                   <a href="#">Perfil</a>
@@ -38,63 +35,30 @@
     </header>
 
     <main class="main">
-      <!--
-      <div class="choose-event">
-        <div class="botaomut">
-          <a href=""><button>MUTIRÕES</button></a>
-        </div>
-        <div class="botaodoac">
-          <a href=""><button>DOAÇÕES</button></a>
-        </div>            
-      </div>
-    -->
       <div class="eventos">
-        <div class="borda">
-          <div class="evento">
-            <div class="imgEvento">
-              <img src="images/teste.png" alt="testando imagem" width="200" height="200">
-            </div>
-            <div class="informacoes">
-              <div class="title">
-                Vacina grátis pra COVID-19
+        <ul>
+          <% eventos.forEach((element) => { %>
+            <li>
+              <div class="borda">
+                <div class="evento">
+                  <div class="informacoes">
+                    <div class="title">
+                      <%= element.titulo %>
+                    </div>
+                    <div class="descricao">
+                      <%= element.descricao %>
+                    </div>
+                    <div class="btnVerMais">
+                      <a href="/events/evento/<%=element.idevento%>"><div class="btnV">Ver mais</div></a>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="descricao">
-                Amanhã, dia 29 de fevereiro de 2020, estaremos esperando ansiosamente a chegada
-                de milhões de doses da vacina para a COVID-19 aaaaaaa aaaaaaaaa aaaaaaaa aaaaaaaaa
-                aaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa
-                aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa
-              </div>
-              <div class="btnVerMais">
-                <a href=""><div class="btnV">Ver mais</div></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="espacamento"></div>
-        <div class="borda">
-          <div class="evento">
-            <div class="imgEvento">
-              <img src="images/teste.png" alt="testando imagem" width="200" height="200">
-            </div>
-            <div class="informacoes">
-              <div class="title">
-                Vacina grátis pra COVID-19
-              </div>
-              <div class="descricao">
-                Amanhã, dia 29 de fevereiro de 2020, estaremos esperando ansiosamente a chegada
-                de milhões de doses da vacina para a COVID-19 aaaaaaa aaaaaaaaa aaaaaaaa aaaaaaaaa
-                aaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa
-                aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa
-              </div>
-              <div class="btnVerMais">
-                <a href=""><div class="btnV">Ver mais</div></a>
-              </div>
-            </div>
-          </div>
-        </div>
+            </li>
+            <br>
+          <% }); %>
+        </ul>
       </div>
-
     </main>
-    
 </body>
 </html>

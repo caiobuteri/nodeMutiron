@@ -1,34 +1,12 @@
 const servicesParticipacao = require('../services/servicesParticipacao');
 
 module.exports = {
-  insereParticipacao: async(req, res) => {
-      let json = {error: '', result: {}}
-  
-          let idPessoa = 1;
-          let idEvento = 1;
-  
-          
-  
-          let participacaoId = await servicesParticipacao.insereParticipacao(idPessoa, idEvento);
-  
-          json.result = {
-              participacaoId,
-              idPessoa,
-              idEvento
-          }
-  
-          res.json(json)
+  participa: async(id_usuario, id_evento) => {
+    await servicesParticipacao.participa(id_usuario, id_evento);
   },
 
-  deletaParticipacao: async(req, res) => {
-
-    let id = req.params.id;
-
-    // let json = { error: '', result: []}
-
-    await servicesParticipacao.deletaParticipacao(id)
-  
-    res.send(`Participação ${id} desfeita!`);
-  }   
+  desparticipa: async(id_usuario, id_evento) => {
+    await servicesParticipacao.desparticipa(id_usuario, id_evento);
+  }
 
 }

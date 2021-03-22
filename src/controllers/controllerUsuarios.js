@@ -1,37 +1,53 @@
-const services = require('../services/servicesUsuarios')
+const services = require('../services/servicesUsuarios');
 
 module.exports = {
 
   leUsuarios: async(req, res) => {
     let json = {error:'', result: []}
 
-        let pessoas = await services.leUsuarios()
-        //console.log(pessoas)
+        let pessoas = await services.leUsuarios();
         for (let pessoa in pessoas){
-          //console.log(pessoas[pessoa])
             json.result.push({
                 idpessoa: pessoas[pessoa].idpessoa,
                 nome: pessoas[pessoa].nome,
                 senha: pessoas[pessoa].senha
-            })
-            //console.log(json.result)
+            });
         }
-        //console.log(json)
         return json
     },
 
-  insereUsuario: async(req, res) => {
-    let json = {error: '', result: {}}
+    getUserName: async(nome) => {
+      let json = {error:'', result: []}
+  
+      let user = await services.getUserName(nome);      
+    
+      json.result.push(user);
 
-    let nome = "kkk"
-    let senha = "333"
+      // console.log(user[0]);
+
+      return user[0];
+    },
+
+    getUserId: async(id) => {
+      // let json = {error:'', result: []}
+  
+      await services.getUserId(id).then((result) => {
+        return result;
+      });      
+    },
+
+  insereUsuario: async(req, res) => {
+    let nome = req.body.nome;
+    let senha = req.body.senha;
+
+    let json = {error: '', result: {}}
 
     if (!nome && senha){
         json.error = 'Campos não enviados'
         return json;
     }
 
-    let pessoaId = await services.insereUsuario(nome, senha)
+    let pessoaId = await services.insereUsuario(nome, senha);
 
     json.result = {
         id: pessoaId,
@@ -39,7 +55,7 @@ module.exports = {
         senha
     }
 
-    return json
+    return json;
   },
   
   atualizaUsuario: async(req, res) => {
@@ -51,7 +67,7 @@ module.exports = {
 
     if (id && nome && senha){
 
-      await services.atualizaUsuario(id, nome, senha)
+      await services.atualizaUsuario(id, nome, senha);
 
       json.result = { 
                   id,
@@ -60,10 +76,10 @@ module.exports = {
               }
 
   } else {
-      json.error = 'Dados não enviados!'
+      json.error = 'Dados não enviados!';
   }
 
-  return json
+  return json;
 
   },
 
@@ -85,7 +101,7 @@ module.exports = {
 
     } else {
 
-      json.error =  'Não foi possível deletar o usuário.'
+      json.error =  'Não foi possível deletar o usuário.';
     }
 
     return json;

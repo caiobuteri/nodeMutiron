@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="/css/criarEvento.css">
     <title>MutirON - Criar evento</title>
 </head>
-<body>
+  <body>
     
     <header>
         <div class="container">
           <div class="img">
-            <img src="/images/mutiron3.png" alt="MutirON"/>
+            <a href="/index"><img src="/images/mutiron3.png" alt="MutirON"/></a>
           </div>
           <div id="divBusca">
             <input type="text" id="txtBusca" placeholder="Buscar...">
@@ -21,9 +21,6 @@
           <div class="nav">
             <nav>
               <ul>
-                <li>
-                  <a href="criarEvento.html">Notificações</a>
-                </li>
                 <li>
                   <a href="#">Perfil</a>
                 </li>
@@ -42,7 +39,7 @@
 
             <div class="adcInformacoes">
                 
-                <form action="#" method="POST">
+                <form action="/events/insereEvento" method="POST">
                     <span>Informações gerais:</span><br>
                     <div class="campo">
                         <label for="titulo">Título:</label><br>
@@ -50,7 +47,7 @@
                     </div>
                     <div class="campo">
                         <label for="descricao">Descrição:</label><br>
-                        <textarea name="message" rows="15" cols="40"></textarea>
+                        <textarea name="descricao" rows="15" cols="40"></textarea>
                     </div>
                     <div class="campo">
                         <label for="data">Data:</label><br>
@@ -58,11 +55,11 @@
                     </div>
                     <div class="campo">
                         <label for="hora">Localização:</label><br>
-                        <input name="local" rows="5" cols="40"><br>
+                        <input name="localizacao" rows="5" cols="40"><br>
                     </div>
 
                     <div class="btnCriar">
-                        <a href=""><button type="submit">Criar</button></a>
+                      <button type="submit">Criar</button>
                     </div>
                 </form>
 
@@ -71,5 +68,5 @@
         </div>
     </main>
 
-</body>
+  </body>
 </html>

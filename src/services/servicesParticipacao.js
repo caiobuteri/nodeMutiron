@@ -2,7 +2,7 @@ const db = require('../database/db');
 
 module.exports = {
 
-  insereParticipacao: (idPessoa, idEvento) => {
+  participa: (idPessoa, idEvento) => {
     return new Promise ((resolve, reject) => {
 
       db.query(` INSERT INTO pessoa_participa_evento2 (pessoas_idPessoa, eventos_idEvento) VALUES (?, ?)`,
@@ -14,9 +14,9 @@ module.exports = {
     });
   },
 
-  deletaParticipacao: (id) => {
+  desparticipa: (id_usuario, id_evento) => {
     return new Promise ((resolve, reject) => {
-      db.query('DELETE FROM pessoa_participa_evento2 WHERE id_participacao = ?', [id],
+      db.query('DELETE FROM pessoa_participa_evento2 WHERE pessoas_idpessoa = ? AND eventos_idevento = ?', [id_usuario, id_evento],
       (error, results) => {
           if (error) {reject(error); return}
           resolve(results)

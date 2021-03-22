@@ -11,6 +11,28 @@ module.exports = {
       })
   },
 
+  getUserName: (nome) => {
+    return new Promise((resolve, reject) => {
+
+        db.query('SELECT * FROM pessoas WHERE nome = ?', [nome],
+         (error, results) => {
+            if (error) {reject(error); return}
+            resolve(results)
+        })
+    })
+  },
+
+getUserId: (id) => {
+  return new Promise((resolve, reject) => {
+
+      db.query('SELECT * FROM pessoas WHERE idpessoa = ?', [id],
+       (error, results) => {
+          if (error) {reject(error); return}
+          resolve(results)
+      })
+  })
+},
+
   insereUsuario: (nome, senha) => {
     return new Promise ((resolve, reject) => {
 

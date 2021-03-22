@@ -57,7 +57,7 @@ main ul li {
     list-style: none;
   }
   
-main ul li a {
+main ul li button {
     text-decoration: none;
     color: #e2003a;
     font-weight: bolder;
@@ -66,7 +66,17 @@ main ul li a {
     padding: 24px;
     transition: all 250ms linear 0s;
   }
+
+main .curtir button {
+  text-decoration: none;
+  color: #e2003a;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 24px;
+  transition: all 250ms linear 0s;
+  }
   
-main ul li a:hover {
+main ul li button:hover {
     background: rgba(202, 118, 93, 0.15)
   }

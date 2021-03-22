@@ -122,3 +122,7 @@ main .btnV {
 main .espacamento {
     padding-top: 15px;
 }
+
+li {
+    list-style:none;
+}

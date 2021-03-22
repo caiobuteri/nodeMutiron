@@ -12,7 +12,7 @@
     <header>
         <div class="container">
           <div class="img">
-            <img src="/images/mutiron3.png" alt="MutirON"/>
+            <a href="/index"><img src="/images/mutiron3.png" alt="MutirON"/></a>
           </div>
           <div id="divBusca">
             <input type="text" id="txtBusca" placeholder="Buscar...">
@@ -22,10 +22,7 @@
             <nav>
               <ul>
                 <li>
-                  <a href="https://caiobuteri.github.io/mutiron/criarEvento">Novo evento</a>
-                </li>
-                <li>
-                  <a href="#">Notificações</a>
+                  <a href="#">Novo evento</a>
                 </li>
                 <li>
                   <a href="#">Perfil</a>
@@ -37,33 +34,49 @@
     </header>
 
     <main>
-        <div class="fotoEvento">
-            <img src="images/teste.png" alt="Fotos do evento" >
-        </div>
         <div class="titulo">
-            <b>Vacina grátis pra COVID-19</b>
+            <b><%= evento.titulo %></b>
         </div>
         <div class="descricao">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu dui nisi.
-            Nam sed magna et justo ultrices rhoncus nec et lacus. Curabitur in ante luctus, finibus nisl ac, 
-            bibendum nisi. Proin tristique quis mauris sit amet tincidunt. Aenean finibus pulvinar tincidunt. 
-            Mauris maximus scelerisque laoreet. Integer vel urna in metus tincidunt placerat eu a erat.
-            Suspendisse orci nisl, ornare id semper vel, gravida sit amet ligula. 
-            Praesent laoreet cursus urna, in luctus arcu. Suspendisse sed erat id odio eleifend tempor.
-            Proin placerat dolor mollis, volutpat orci eu, fringilla ipsum. 
-            Morbi hendrerit risus vel mi ullamcorper luctus. 
-            Maecenas imperdiet sollicitudin mauris in pretium. Proin nulla quam, mollis et massa vel, 
-            vestibulum sagittis est. Maecenas felis massa, sagittis in arcu nec, tristique eleifend tortor.
-            Vivamus interdum, nibh sed fringilla mollis, nisi lectus porttitor ipsum, 
-            non tristique erat eros condimentum sapien. 
-            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            <%= evento.descricao %>
         </div>
-        <div class="opcoes">
-            <ul>
-                <li><a href="">Curtir</a></li>
-                <li><a href="">Participar</a></li>
-            </ul>
-        </div>
+        <% if(user != evento.criador) { %>
+
+          <% if(eventsCurtidos.indexOf(evento.idEvento) > -1) { %>
+            <div class="curtir">
+              <form action="/curtido" method="POST">
+                <input hidden="true" type="text" name="id_evento" value="<%= evento.idEvento %>">
+                <input hidden="true" type="text" name="id_criador" value="<%= evento.criador %>">
+                <button type="submit">Curtido</button>
+              </form>
+            </div>
+          <% } else {  %>
+            <div class="curtir">
+              <form action="/curtir" method="POST">
+                <input hidden="true" type="text" name="id_evento" value="<%= evento.idEvento %>">
+                <button type="submit">Curtir</button>
+              </form>
+            </div>
+          <% } %>
+
+          <% if(eventsParticipados.indexOf(evento.idEvento) > -1) { %>
+            <div class="curtir">
+              <form action="/desparticipar" method="POST">
+                <input hidden="true" type="text" name="id_evento" value="<%= evento.idEvento %>">
+                <input hidden="true" type="text" name="id_criador" value="<%= evento.criador %>">
+                <button type="submit">Participando</button>
+              </form>
+            </div>
+          <% } else {  %>
+            <div class="curtir">
+              <form action="/participar" method="POST">
+                <input hidden="true" type="text" name="id_evento" value="<%= evento.idEvento %>">
+                <button type="submit">Participar</button>
+              </form>
+            </div>
+          <% } %>
+
+        <% } %>
     </main>
     
 </body>

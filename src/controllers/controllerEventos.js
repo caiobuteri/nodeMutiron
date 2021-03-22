@@ -10,7 +10,7 @@ module.exports = {
 
     for (let evento in eventos){
         json.result.push({
-            idevento: eventos[evento].idevento,
+            idevento: eventos[evento].idEvento,
             titulo: eventos[evento].titulo,
             descricao: eventos[evento].descricao,
             data: eventos[evento].data,
@@ -18,32 +18,61 @@ module.exports = {
             criador: eventos[evento].criador
         });
     }
-
-    res.json(json);
+    return (json.result);
   },
 
-  insereEventos: async(req, res) => {
+  getEventosUserLike: async(user) => {
+    let events = [];
 
-    let titulo = 'Entrega de cobertores';
-    let descricao = 'Vamos entregar cobertores para moradores de rua';
-    let data = '2021-01-01';
-    let localizacao = 'Maruipe';
-    let criador = 1;
+    // console.log(user);
 
-    let json = { error: '', result: []}
+    events = await servicesEventos.getEventosUserLike(user);
+    // console.log(events);
+    return events;
+  },
 
-    let idEvento = await servicesEventos.insereEvento(titulo, descricao, data, localizacao, criador);
+  getEventosUserParticipa: async(user) => {
+    let events = [];
 
-    json.result = {
-      id: idEvento,
-      titulo,
-      descricao,
-      data,
-      localizacao,
-      criador
-    } 
+    // console.log(user);
 
-    res.json(json);
+    events = await servicesEventos.getEventosUserParticipa(user);
+    // console.log(events);
+    return events;
+  },
+
+  getEvento: async(id) => {
+
+    let json = {error:'', result: []}
+
+    let evento = await servicesEventos.getEvento(id);
+
+    json.result.push(evento);
+
+    return (evento[0]);
+  },
+
+  insereEventos: async(info) => {
+
+    // let json = { error: '', result: []}
+
+    let titulo = info[0];
+    let descricao = info[1];
+    let data = info[2];
+    let localizacao = info[3];
+    let user = info[4];
+
+    let eventId = await servicesEventos.insereEvento(titulo, descricao, data, localizacao, user);
+    
+    return eventId;
+    // json.result = {
+    //   id: idEvento,
+    //   titulo,
+    //   descricao,
+    //   data,
+    //   localizacao,
+    //   criador
+    // } 
   },
 
   deleteEvento: async(req, res) => {
