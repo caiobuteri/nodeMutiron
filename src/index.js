@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
 const cors = require('cors');
-const session = require('express-session');
+const session = require('cookie-session');
 const flash = require('connect-flash');
 
 const passport = require('passport');
@@ -28,7 +28,7 @@ app.use(cors());
     secret: 'mutiron',
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 1000 * 60 * 1000 }
+    cookie: { maxAge: 1000 * 60 * 1000, secure: true }
   }));
 
   app.use(passport.initialize());
