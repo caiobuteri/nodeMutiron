@@ -58,6 +58,6 @@ app.use('/', authenticationMiddleware, index);
 app.use('/', curtir);
 app.use('/', participar);
 
-app.listen(3333, () => {
+app.listen(process.env.PORT || 3333, () => {
   console.log("Back-end rodando!");
 })
