@@ -35,10 +35,16 @@
 
     <main>
         <div class="titulo">
-            <b><%= evento.titulo %></b>
+          <b><%= evento.titulo %></b>
         </div>
         <div class="descricao">
-            <%= evento.descricao %>
+          <%= evento.descricao %>
+        </div>
+        <div class="descricao">
+          <%= evento.data %>
+        </div>
+        <div class="descricao">
+          <%= evento.localizacao %>
         </div>
         <% if(user != evento.criador) { %>
 

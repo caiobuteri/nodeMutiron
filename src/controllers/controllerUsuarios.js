@@ -109,9 +109,9 @@ module.exports = {
 
   loginMobile: async (nome, senha) => {
     let json = {error:'', result: []}
-    const result = await services.loginMobile(nome, senha)
-    const result1 = JSON.parse(JSON.stringify(result));
-    return result1[0];
+    const result = await services.loginMobile(nome, senha);
+    const result1 = JSON.stringify(result[0]);
+    return result1;
   },
 
 }
