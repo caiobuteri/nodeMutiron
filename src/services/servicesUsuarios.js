@@ -69,9 +69,9 @@ getUserId: (id) => {
   });
   },
 
-  loginMobile: () => {
+  loginMobile: (nome, senha) => {
     return new Promise ((resolve, reject) => {
-      db.query("SELECT nome, senha FROM pessoas WHERE nome = 'caio' and senha = '124'",
+      db.query("SELECT nome, senha FROM pessoas WHERE nome = ? and senha = ?", [nome, senha],
       (error, results) => {
           if (error) {reject(error); return}
           resolve(results)

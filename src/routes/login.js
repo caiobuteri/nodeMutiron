@@ -18,7 +18,9 @@ router.post('/login', passport.authenticate('local', {
 }));
 
 router.get('/loginMobile', async(req, res) => {
-  res.json(await controller.loginMobile());
+  let nome = req.body.login;
+  let senha = req.body.password; 
+  res.json(await controller.loginMobile(nome, senha));
 });
 
 module.exports = router;
