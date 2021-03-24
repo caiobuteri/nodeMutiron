@@ -55,8 +55,8 @@ getUserId: (id) => {
                   (error, results) => {
                     if (error) {reject(error); return}
                     resolve(results)
-                })  
-    })
+                });  
+    });
   },
 
   deleteUsuario: (id) => {
@@ -65,8 +65,18 @@ getUserId: (id) => {
       (error, results) => {
           if (error) {reject(error); return}
           resolve(results)
-      })  
-  })
+      });
+  });
+  },
+
+  loginMobile: () => {
+    return new Promise ((resolve, reject) => {
+      db.query("SELECT nome, senha FROM pessoas WHERE nome = 'caio' and senha = '124'",
+      (error, results) => {
+          if (error) {reject(error); return}
+          resolve(results)
+      });
+  });
   }
 
 }
