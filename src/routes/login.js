@@ -29,6 +29,8 @@ router.post('/loginMobile', async(req, res) => {
   form.parse(req, async function(err, fields, files) {
     let nome = fields.login[0];
     let senha = fields.password[0];
+
+    console.log(nome, senha)
     
     res.json(await controller.loginMobile(nome, senha));
 
