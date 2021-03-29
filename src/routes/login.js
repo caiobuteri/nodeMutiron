@@ -30,7 +30,8 @@ router.post('/loginMobile', async(req, res) => {
     let nome = fields.login[0];
     let senha = fields.password[0];
 
-    // console.log(nome, senha)
+    nome = nome.replace(/[^a-z0-9]/gi,'');
+    senha = senha.replace(/[^a-z0-9]/gi,'');
     
     res.json(await controller.loginMobile(nome, senha));
 
