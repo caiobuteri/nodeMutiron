@@ -26,15 +26,15 @@ router.post('/login', passport.authenticate('local', {
 router.post('/loginMobile', async(req, res) => {
   let form = new multiparty.Form();
 
-  form.parse(req, function(err, fields, files) {
+  form.parse(req, async function(err, fields, files) {
     let nome = fields.login[0];
     let senha = fields.password[0];
     
-    console.log(nome, senha)
+    console.log(nome, senha);
 
- });
+    res.json(await controller.loginMobile(nome, senha));  
 
-  // res.json(await controller.loginMobile(nome, senha));  
+  });
 });
 
 module.exports = router;
