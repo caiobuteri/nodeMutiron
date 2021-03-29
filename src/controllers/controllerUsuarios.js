@@ -110,8 +110,8 @@ module.exports = {
   loginMobile: async (nome, senha) => {
     let json = {error:'', result: []}
     const result = await services.loginMobile(nome, senha);
-    const result1 = JSON.stringify(result[0]);
-    return result1;
+    
+    return result[0];
   },
 
 }
