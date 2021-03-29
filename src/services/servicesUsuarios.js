@@ -71,6 +71,7 @@ getUserId: (id) => {
 
   loginMobile: (nome, senha) => {
     return new Promise ((resolve, reject) => {
+      console.log(nome, senha)
       db.query("SELECT nome, senha FROM pessoas WHERE nome = ? and senha = ?", [nome, senha],
       (error, results) => {
           if (error) {reject(error); return}
