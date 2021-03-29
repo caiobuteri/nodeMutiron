@@ -5,6 +5,10 @@ const router = express.Router();
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 
+const Multer = require('multer');
+
+const multer = Multer();
+
 const controller = require('../controllers/controllerUsuarios');
 
 router.get('/login', (req, res) => {
@@ -17,7 +21,7 @@ router.post('/login', passport.authenticate('local', {
   failureFlash: true
 }));
 
-router.post('/loginMobile', async(req, res) => {
+router.post('/loginMobile', multer.none(), async(req, res) => {
   let nome = req.body.login;
   let senha = req.body.password;
 

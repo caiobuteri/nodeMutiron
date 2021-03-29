@@ -6,6 +6,9 @@ const path = require('path');
 const cors = require('cors');
 const session = require('cookie-session');
 const flash = require('connect-flash');
+const Multer = require('multer');
+
+const multer = Multer();
 
 const passport = require('passport');
 require('./config/auth')(passport)
