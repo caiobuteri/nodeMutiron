@@ -20,7 +20,7 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/login',
   failureFlash: true
 }));
-
+ 
 router.post('/loginMobile', multer.none(), async(req, res) => {
   let nome = req.body.login;
   let senha = req.body.password;
