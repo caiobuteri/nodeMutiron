@@ -25,8 +25,6 @@ router.post('/loginMobile', multer.none(), async(req, res) => {
   let nome = req.body.login;
   let senha = req.body.password;
 
-  console.log(req)
-
   console.log(nome, senha)
 
   res.json(await controller.loginMobile(nome, senha));
