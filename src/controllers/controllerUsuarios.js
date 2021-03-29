@@ -108,10 +108,23 @@ module.exports = {
   },
 
   loginMobile: async (nome, senha) => {
-    let json = {error:'', result: []}
+
     const result = await services.loginMobile(nome, senha);
+
+    function isEmpty(obj) {
+      return Object.keys(obj).length === 0;
+  }
+
+    if (isEmpty(result)){
+      
+      return { success: 0};
+
+
+    } else {
+      
+      return { success: 1};
     
-    return result[0];
+    }
   },
 
 }
