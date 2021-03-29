@@ -9,6 +9,8 @@ const Multer = require('multer');
 
 const multer = Multer();
 
+const multiparty = require('multiparty');
+
 const controller = require('../controllers/controllerUsuarios');
 
 router.get('/login', (req, res) => {
@@ -21,17 +23,18 @@ router.post('/login', passport.authenticate('local', {
   failureFlash: true
 }));
  
-router.post('/loginMobile', multer.none(), async(req, res) => {
-  let nome = req.body.login;
-  let senha = req.body.password;
+router.post('/loginMobile', async(req, res) => {
+  let form = new multiparty.Form();
 
-  console.log(req)
-  console.log(req.body)
+  form.parse(req, function(err, fields, files) {
+    let nome = fields.login[0];
+    let senha = fields.password[0];
+    
+    console.log(nome, senha)
 
+ });
 
-  console.log(nome, senha)
-
-  res.json(await controller.loginMobile(nome, senha));
+  // res.json(await controller.loginMobile(nome, senha));  
 });
 
 module.exports = router;
