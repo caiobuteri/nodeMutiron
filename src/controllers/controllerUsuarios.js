@@ -112,6 +112,8 @@ module.exports = {
     const result = await services.loginMobile(nome, senha);
 
     function isEmpty(obj) {
+      console.log(obj)
+      console.log(Object.keys(obj).length)
       return Object.keys(obj).length === 0;
   }
 
