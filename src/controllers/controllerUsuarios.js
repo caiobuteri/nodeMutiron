@@ -136,10 +136,10 @@ module.exports = {
     const resultName = await services.getUserName(nome);
 
     if (isEmpty(resultName)){
-      success = 0;
+      success = 1;
       
     } else {
-      success = 1;
+      success = 0;
     
     }
 

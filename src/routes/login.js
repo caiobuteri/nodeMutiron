@@ -48,6 +48,8 @@ router.post('/cadastroMobile', async(req, res) => {
     nome = nome.replace(/[^a-z0-9]/gi,'');
     senha = senha.replace(/[^a-z0-9]/gi,'');
     
+    console.log(nome, senha)
+
     res.json(await controller.cadastroMobile(nome, senha));
 
   });
