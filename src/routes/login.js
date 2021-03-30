@@ -43,7 +43,7 @@ router.post('/cadastroMobile', async(req, res) => {
 
   form.parse(req, async function(err, fields, files) {
 
-    console.log("chegou aqui")
+    console.log(fields)
     let nome = fields.login[0];
     let senha = fields.password[0];
 
