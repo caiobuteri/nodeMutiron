@@ -115,18 +115,42 @@ module.exports = {
       console.log(obj)
       console.log(Object.keys(obj).length)
       return Object.keys(obj).length === 0;
-  }
+    }
 
     if (isEmpty(result)){
-      
       return { success: 0};
 
-
     } else {
-      
       return { success: 1};
-    
     }
   },
+
+  cadastroMobile: async (nome, senha) => {
+
+    let success;
+
+    const isEmpty = (obj) => {
+      return Object.keys(obj).length === 0;
+    }
+
+    const resultName = await services.getUserName(nome);
+
+    if (isEmpty(resultName)){
+      success = 0;
+      
+    } else {
+      success = 1;
+    
+    }
+
+    if (success == 1){
+      const resultInsert = await services.insereUsuario(nome, senha);
+
+      return { success: 1}
+    } 
+      
+    return { success: 0 }
+    
+  }
 
 }
