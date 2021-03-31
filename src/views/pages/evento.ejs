@@ -22,7 +22,7 @@
             <nav>
               <ul>
                 <li>
-                  <a href="#">Novo evento</a>
+                  <a href="events/criarEvento">Novo evento</a>
                 </li>
                 <li>
                   <a href="#">Perfil</a>
@@ -34,9 +34,10 @@
     </header>
 
     <main>
+      <div class="principal">
         <div class="titulo">
           <b><%= evento.titulo %></b>
-        </div>
+        </div><br>
         <div class="descricao">
           <%= evento.descricao %>
         </div>
@@ -83,6 +84,7 @@
           <% } %>
 
         <% } %>
+      </div>
     </main>
     
 </body>

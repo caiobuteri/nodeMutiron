@@ -5,8 +5,15 @@ const router = express.Router();
 const controller = require('../controllers/controllerEventos');
 
 const util = require('../functions/util');
+const servicesEventos = require('../services/servicesEventos');
 
-router.get('/listaEventos', controller.listaEventos);
+router.post('/listaEventoss', async (req, res) => {
+  console.log('chegou');
+  const a = await controller.listaEventos();
+  
+  console.log(a)
+  res.json(a);
+});
 
 router.get('/evento/:id', async(req, res) => {
   let id_evento = req.params.id;
@@ -15,6 +22,12 @@ router.get('/evento/:id', async(req, res) => {
   let dadosCurtidos = await util.preencheArrayEventosCurtidos(id_usuario, id_evento);
 
   let dadosParticipados = await util.preencheArrayEventosParticipados(id_usuario, id_evento);
+
+  const data = dadosCurtidos[1].data.split('-')
+
+  const date = data[2].substring(0,2) + '/' + data[1] + '/' + data[0]
+
+  dadosCurtidos[1].data = date;
 
   res.render('pages/evento', 
   { evento: dadosCurtidos[1], 

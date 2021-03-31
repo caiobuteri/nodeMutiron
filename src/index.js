@@ -20,6 +20,7 @@ const login = require('./routes/login');
 const index = require('./routes/index');
 const curtir = require('./routes/curtir');
 const participar = require('./routes/participacao');
+const mobile = require('./routes/mobile');
 
 const cookieParser = require('cookie-parser');
 
@@ -63,9 +64,10 @@ app.use('/users', authenticationMiddleware, users);
 app.use('/events', authenticationMiddleware, events);
 app.use('/participacao', authenticationMiddleware, participacoes);
 app.use('/', login);
-app.use('/', authenticationMiddleware, index);
+app.use('/', index);
 app.use('/', curtir);
 app.use('/', participar);
+app.use('/mobile', mobile);
 
 app.listen(process.env.PORT || 3333, () => {
   console.log("Back-end rodando!");

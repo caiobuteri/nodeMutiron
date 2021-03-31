@@ -1,15 +1,16 @@
+const { json } = require('body-parser');
 const servicesEventos = require('../services/servicesEventos');
 
 module.exports = {
 
   listaEventos: async(req, res) => {
 
-    let json = {error:'', result: []}
+    let result = [];
 
     let eventos = await servicesEventos.leEventos();
 
     for (let evento in eventos){
-        json.result.push({
+        result.push({
             idevento: eventos[evento].idEvento,
             titulo: eventos[evento].titulo,
             descricao: eventos[evento].descricao,
@@ -18,13 +19,44 @@ module.exports = {
             criador: eventos[evento].criador
         });
     }
-    return (json.result);
+
+    return result;
+    // res.json(result);
+  },
+
+  listaEventosMobile: async(req, res) => {
+
+    let eventosObj = await servicesEventos.leEventos();
+
+    // console.log(eventosObj)
+
+    let eventos = [];
+    
+    let evento = [];
+
+    eventosObj.forEach(item => {
+      evento.push(item.idEvento);
+      evento.push(item.titulo);
+      evento.push(item.descricao);
+      evento.push(item.data);
+      evento.push(item.localizacao);
+      evento.push(item.criador);
+
+      eventos.push(evento);
+
+      evento = [];
+    });
+
+    let retorno = {
+      success: 1,
+      eventos: eventos
+    }
+
+    return retorno;
   },
 
   getEventosUserLike: async(user) => {
     let events = [];
-
-    // console.log(user);
 
     events = await servicesEventos.getEventosUserLike(user);
     // console.log(events);

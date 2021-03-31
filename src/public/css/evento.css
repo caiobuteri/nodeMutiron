@@ -14,6 +14,13 @@ body {
     background-color: #FFFAFA;
   }
 
+main .principal {
+  
+  justify-content: center;
+  height: 100%;
+  border: 2px #e2003a
+}
+
 main .fotoEvento {
     display: flex;
     justify-content: center;
@@ -35,7 +42,7 @@ main .titulo {
     padding-bottom: 15px;
 }
 
-main .descricao {
+main .descricao { 
     font-size: 20px;
     font-family: Poppins-Bold;
     color: #e2003a;
@@ -67,6 +74,16 @@ main ul li button {
     transition: all 250ms linear 0s;
   }
 
+main .curtir {
+  display: flex;
+  width: 20%;
+}
+
+main .curtir form {
+  display: flex;
+  width: 100%;
+}
+
 main .curtir button {
   text-decoration: none;
   color: #e2003a;
@@ -77,6 +94,3 @@ main .curtir button {
   transition: all 250ms linear 0s;
   }
   
-main ul li button:hover {
-    background: rgba(202, 118, 93, 0.15)
-  }
