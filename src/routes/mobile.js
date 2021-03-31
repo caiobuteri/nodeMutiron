@@ -41,7 +41,7 @@ router.post('/cadastroMobile', async(req, res) => {
   });
 });
 
-router.post('/retornaEventos', async(req, res) => {
+router.get('/retornaEventos', async(req, res) => {
 
   await controllerEventos.listaEventosMobile();
 
