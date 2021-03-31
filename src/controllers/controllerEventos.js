@@ -32,19 +32,19 @@ module.exports = {
 
     let eventos = [];
     
-    let evento = [];
+    let evento = {};
 
     eventosObj.forEach(item => {
-      evento.push(item.idEvento);
-      evento.push(item.titulo);
-      evento.push(item.descricao);
-      evento.push(item.data);
-      evento.push(item.localizacao);
-      evento.push(item.criador);
+      evento.id_evento = item.idEvento;
+      evento.titulo = item.titulo;
+      evento.descricao = item.descricao;
+      evento.data = item.data;
+      evento.localizacao = item.localizacao;
+      evento.criador = item.criador;
 
       eventos.push(evento);
 
-      evento = [];
+      evento = {};
     });
 
     let retorno = {
