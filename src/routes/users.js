@@ -24,7 +24,7 @@ router.get('/lerUsuarios', (req, res) => {
 // });
 
 router.get('/insereUsuario', (req, res) => {
-  res.render('pages/cadastro')
+  res.render('pages/cadastro');
 });
 
 router.post('/insereUsuario', (req, res) => {

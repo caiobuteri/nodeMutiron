@@ -23,8 +23,6 @@ module.exports = {
     
       json.result.push(user);
 
-      // console.log(user[0]);
-
       return user[0];
     },
 
@@ -39,6 +37,21 @@ module.exports = {
   insereUsuario: async(req, res) => {
     let nome = req.body.nome;
     let senha = req.body.senha;
+
+    function isEmpty(obj) {
+      console.log(obj)
+      console.log(Object.keys(obj).length)
+      return Object.keys(obj).length === 0;
+    }
+
+    const result = await services.loginMobile(nome, senha);
+
+    if (isEmpty(result)){
+      return { success: 0};
+
+    } else {
+      return { success: 1};
+    }
 
     let json = {error: '', result: {}}
 

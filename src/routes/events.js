@@ -23,6 +23,8 @@ router.get('/evento/:id', async(req, res) => {
 
   let dadosParticipados = await util.preencheArrayEventosParticipados(id_usuario, id_evento);
 
+  console.log(dadosCurtidos[1].data.toString())
+
   const data = dadosCurtidos[1].data.split('-')
 
   const date = data[2].substring(0,2) + '/' + data[1] + '/' + data[0]

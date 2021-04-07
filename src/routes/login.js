@@ -17,6 +17,10 @@ router.get('/login', (req, res) => {
   res.render('pages/login')
 });
 
+router.get('/cadastro', (req, res) => {
+  res.render('pages/cadastro');
+});
+
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/index',
   failureRedirect: '/login',

@@ -55,6 +55,23 @@ module.exports = {
     return retorno;
   },
 
+  cadastroEventoMobile: async(title, description, location, date, criador) => {
+
+    let id_evento = await servicesEventos.insereEvento(title, description, location, date, criador);
+
+    let success;
+
+    if(id_evento != null){
+      success = {success: 1}
+      return success;
+
+    } else {
+      success = {success: 0}
+      return success;
+    
+    }
+  },
+
   getEventosUserLike: async(user) => {
     let events = [];
 
@@ -97,14 +114,6 @@ module.exports = {
     let eventId = await servicesEventos.insereEvento(titulo, descricao, data, localizacao, user);
     
     return eventId;
-    // json.result = {
-    //   id: idEvento,
-    //   titulo,
-    //   descricao,
-    //   data,
-    //   localizacao,
-    //   criador
-    // } 
   },
 
   deleteEvento: async(req, res) => {
@@ -116,5 +125,10 @@ module.exports = {
     await servicesEventos.deleteEvento(id)
   
     res.send(`Evento ${id} deletado!`);
+  },
+
+  eventoDetalhado: async(id) => {
+    result = await servicesEventos.getEvento(id);
+    return result;
   }
 }
