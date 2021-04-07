@@ -94,6 +94,8 @@ router.post('/insereeventomobile', async(req, res) => {
 
   form.parse(req, async function(err, fields, files) {
 
+    console.log(fields)
+
     let title = fields.title[0];
     let location = fields.location[0];
     let date = fields.date[0];
