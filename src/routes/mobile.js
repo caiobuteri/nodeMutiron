@@ -88,7 +88,7 @@ router.get('/retornaEventoDetalhes', async(req, res) => {
 
 });
 
-router.post('/insereEventoMobile', async(req, res) => {
+router.post('/insereeventomobile', async(req, res) => {
 
   let form = new multiparty.Form();
 
