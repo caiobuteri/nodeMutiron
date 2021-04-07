@@ -97,8 +97,8 @@ router.post('/insereeventomobile', async(req, res) => {
     let title = fields.title[0];
     let location = fields.location[0];
     let date = fields.date[0];
-    let description = fields.title[0];
-    let login = fields.login[0];
+    let description = fields.description[0];
+    let login = fields.criador[0];
 
     let resultId = await controllerUsuario.getUserName(login);
 
