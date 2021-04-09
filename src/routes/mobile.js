@@ -79,12 +79,20 @@ router.get('/retornaEventos', async(req, res) => {
 
 router.get('/retornaEventoDetalhes', async(req, res) => {
 
-  await controllerEventos.listaEventosMobile();
+  let form = new multiparty.Form();
 
-  // res.send("a")
-  // console.log('chegou')
-  // console.log(await controllerEventos.listaEventosMobile());
-  res.json(await controllerEventos.listaEventosMobile());
+  form.parse(req, async function(err, fields, files) {
+
+    let id_evento = fields.p_eid[0];
+
+    console.log(id_evento);
+
+    let event = await controllerEventos.getEvento(id_evento);
+
+    console.log(event);
+    
+    res.json(event);
+  });
 
 });
 
