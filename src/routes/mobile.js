@@ -112,7 +112,7 @@ router.post('/insereeventomobile', async(req, res) => {
 
     let id = resultId.idpessoa;
 
-    let info = [title, location, date, description, id];
+    let info = [title, location, date2, description, id];
 
     let new_id = await controllerEventos.insereEventos(info);
 
