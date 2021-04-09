@@ -130,6 +130,8 @@ module.exports = {
       return Object.keys(obj).length === 0;
     }
 
+    console.log(result);
+
     if (isEmpty(result)){
       return { success: 0};
 
