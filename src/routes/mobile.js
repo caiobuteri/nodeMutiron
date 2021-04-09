@@ -102,6 +102,12 @@ router.post('/insereeventomobile', async(req, res) => {
     let description = fields.description[0];
     let login = fields.criador[0];
 
+    let dateArray = date.split('/');
+
+    let date2 = new Date(`${dateArray[2]}-${dateArray[1]}-${dateArray[0]}`);
+
+    console.log(date2)
+
     let resultId = await controllerUsuario.getUserName(login);
 
     let id = resultId.idpessoa;
