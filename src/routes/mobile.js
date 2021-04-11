@@ -110,7 +110,7 @@ router.post('/insereeventomobile', async(req, res) => {
     let location = fields.location[0];
     let date = fields.date[0];
     let description = fields.description[0];
-    let login = fields.criador[0];
+    let criador = fields.criador[0];
 
     let dateArray = date.split('/');
 
@@ -118,11 +118,11 @@ router.post('/insereeventomobile', async(req, res) => {
 
     console.log(date2)
 
-    let resultId = await controllerUsuario.getUserName(login);
+    // let resultId = await controllerUsuario.getUserName(login);
 
-    let id = resultId.idpessoa;
+    // let id = resultId.idpessoa;
 
-    let info = [title, location, date2, description, id];
+    let info = [title, location, date2, description, criador];
 
     let new_id = await controllerEventos.insereEventos(info);
 
