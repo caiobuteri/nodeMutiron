@@ -13,6 +13,10 @@ const multiparty = require('multiparty');
 
 const controller = require('../controllers/controllerUsuarios');
 
+router.get('/', (req, res) => {
+  res.redirect('/login');
+});
+
 router.get('/login', (req, res) => {
   res.render('pages/login')
 });
